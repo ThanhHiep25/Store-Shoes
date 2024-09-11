@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Online Shoe Store</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <!-- <style>
+    .container-home {
+	margin: 0;
+}
+
+.container-product {
+	margin: 20px;
+}
+
+.products-home {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo-home {
+	height: 50px;
+	width: 50px;
+	border-radius: 5px;
+}
+
+.title-home {
+	font-size: 40px;
+	font-weight: bold;
+	color: rgb(255, 145, 0);
+	margin-bottom: 20px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	margin: 20px;
+	margin-top: 150px;
+}
+
+.menu-home {
+	height: 100px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	background-color: chocolate;
+	top: 0;
+    left: 0;
+	position: fixed;
+	z-index: 1;
+}
+
+.ul-home {
+	height: 100px;
+	width: 500px;
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.li-home {
+	display: flex;
+	height: 100px;
+	width: 200px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer; 
+}
+
+/* Search css*/
+.group-search {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.search-home {
+	padding: 10px;
+	width: 500px;
+	border: none;
+	border-radius: 10px;
+	background-color: rgba(247, 163, 103, 0.788);
+	height: 30px;
+	font-size: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	outline: none; 
+}
+.btn-search {
+	font-size: 16px;
+	color: white;
+	margin-left: 20px;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	outline: none;
+	background-color: rgba(247, 163, 103, 0.788);
+	transition: background-color 0.3s;
+	
+
+}
+.btn-load {
+	padding: 10px 20px;
+	font-size: 16px;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+	transition: background-color 0.3s;
+}
+
+/*img product*/
+
+.imgProduct{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    background-color: rgba(187, 185, 185, 0.726);
+}
+
+.showProduct{
+    margin-top: 20px;
+    object-fit: cover;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.cartProduct{
+    margin: 20px;
+    height: auto;
+    width: 230px;
+    padding: 20px 10px 20px 10px;
+    background-color: rgb(224, 220, 220);
+    border-radius: 10px;
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &:hover{
+        background-color: #ffe5cfa8;
+    }
+}
+
+.btn-add-item{
+    padding: 10px 20px;
+    background-color: #36c582bd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover{
+        background-color: #36c582;
+    }
+}
+
+.showProduct > .product-item {
+    flex: 1 1 200px; /* Mỗi sản phẩm sẽ có độ rộng tối thiểu là 200px */
+    margin: 10px;
+}
+
+/* Khi màn hình nhỏ hơn 768px, hiển thị theo cột */
+@media (max-width: 768px) {
+    .showProduct {
+        flex-direction: column;  /* Đổi thành hiển thị theo cột */
+    }
+}
+        </style> -->
+    </head>
+    <body>
+        <!-- <header>
+        <img src="/images/logo.png" alt="Logo">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/cart">Cart</a>
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to the Online Shoe Store</h1>
+        <div class="product-list">
+            <div th:each="product : ${products}" class="product-item">
+                <img th:src="${product.imageUrl}" alt="Product Image">
+                <h2 th:text="${product.name}">Product Name</h2>
+                <p th:text="${product.description}">Product Description</p>
+                <p th:text="'Price: ' + ${product.price}">Product Price</p>
+                <a th:href="@{/product/{id}(id=${product.id})}">View Details</a>
+                <button th:onclick="'addToCart(' + ${product.id} + ')'" class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+    <script src="/js/scripts.js"></script> -->
+        <header class="container-home">
+            <div class="menu-home">
+                <img src="https://cdn.glitch.global/99b7332c-26b5-4906-89f3-c79101470dd1/moon.png?v=1725115809358" alt="Logo" class="logo-home">
+                <ul class="ul-home">
+                    <li class="li-home">Add Product</li>
+                    <li class="li-home">About</li>
+                    <li class="li-home">Contact</li>
+                </ul>
+            </div>
+        </header>
+        <h1 class="title-home">Welcome to, ...</h1>
+        <div class="group-search">
+            <input type="text" placeholder="Search..." class="search-home">
+            <button class="btn-search">Search</button>
+        </div>
+        <div class="container-product">
+            <h2>Featured Products</h2>
+            <div class="products-home">
+                <div class="product-list">
+                    <div class="showProduct">
+                        <div th:each="product : ${products}" class="cartProduct">
+                            <img th:src="${product.imageUrl}" class="imgProduct" alt="Product Image">
+                            <div class="title">
+                                <h2 th:text="${product.name}" class="nameProduct">Dép nam nữ quai ngang slipper Pathon quai PVC và đế PU trắng quai xám SD28</h2>
+                                <p th:text="${product.description}" class="desProduct">Dép Pathon cao cấp quai ngang PVC đế PU cao cấp</p>
+                                <p th:text="'Price: ' + ${product.price}">Product Price</p>
+                            </div>
+                            <a th:href="@{/product/{id}(id=${product.id})}" class="details">View Details</a>
+                            <button th:onclick="'addToCart(' + ${product.id} + ')'" class="btn-add-item">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn-load">Load More</button>
+    </div>
+</body>
+</html>

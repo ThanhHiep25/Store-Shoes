@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Product List</title>
+        <link rel="stylesheet" href="/css/productList.css">
+        <link rel="stylesheet" href="../static/css/productList.css">
+        <script>
+            const productList = [{
+                id: 1,
+                name: "Shoes 1",
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                imageUrl: "../static/images/duwa.png",
+                price: 19.99
+            },
+            {
+                id: 2,
+                name: "Shoes 2",
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                imageUrl: "../static/images/duwa.png",
+                price: 24.99
+            },
+            {
+                id: 3,
+                name: "Shoes 3",
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                imageUrl: "../static/images/duwa.png",
+                price: 29.99
+            },
+            {
+                id: 4,
+                name: "Shoes 4",
+                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                imageUrl: "../static/images/duwa.png",
+                price: 34.99
+            }
+        ]
+        </script>
+    </head>
+    <body>
+        <header>
+            <!-- <img src="/images/logo.png" alt="Logo">
+            <nav>
+                <a href="/">Home</a>
+                <a href="/cart">Cart</a>
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+            </nav> -->
+            <div class="menu-home">
+                <img src="https://cdn.glitch.global/99b7332c-26b5-4906-89f3-c79101470dd1/moon.png?v=1725115809358" alt="Logo" class="logo-home">
+                <ul class="ul-home">
+                    <li class="li-home">Trang chủ</li>
+                    <li class="li-home">Giỏ hàng</li>
+                    <li class="li-home">Đăng ký</li>
+                    <li class="li-home">Đăng nhập</li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <h1>Product List</h1>
+            <div class="product-list">
+                <!-- <div th:each="product : ${products}" class="product-item">
+                    <img th:src="${product.imageUrl}" alt="Product Image">
+                    <h2 th:text="${product.name}">Product Name</h2>
+                    <p th:text="${product.description}">Product Description</p>
+                    <p th:text="'Price: ' + ${product.price}">Product Price</p>
+                    <a th:href="@{/product/{id}(id=${product.id})}">View Details</a>
+                    <button th:onclick="'addToCart(' + ${product.id} + ')'" class="add-to-cart-btn">Add to Cart</button>
+                </div> -->
+                <div class="product-list" id="productListContainer">
+                    <!-- Các sản phẩm sẽ được render vào đây --></div>
+                <script>
+                    function renderProducts() {
+                const productListContainer = document.getElementById("productListContainer");
+                let html = "";
+
+                productList.forEach(product => {
+                    html += `
+                    <div class="product-item">
+                        <img src="${product.imageUrl}" alt="${product.name}" class="img-product-list">
+                        <div class="title-product-list">
+                        <h2 class="name-pr-list">${product.name}</h2>
+                        <p class="des-pr-list">${product.description}</p>
+                        <p class="pri-pr-list">Price: $${product.price}</p>
+                        <a href="/product/${product.id}" class="detail-pr-list">View Details</a>
+                        <button onclick="addToCart(${product.id})" class="btn-pr-list" >Add to Cart</button>
+                        </div>     
+                    </div>`;
+                });
+
+                productListContainer.innerHTML = html;
+            }
+
+            function addToCart(productId) {
+                alert(`Product ${productId} added to cart!`);
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                renderProducts(); 
+            });
+                </script>
+            </div>
+            <button class="btn-load" id="loadMoreBtn">Load More</button>
+        </main>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>

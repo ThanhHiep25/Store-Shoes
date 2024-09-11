@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="/images/logo.png" alt="Logo">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/cart">Cart</a>
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Your Cart</h1>
+        <div class="cart-items">
+            <div th:each="item : ${cartItems}" class="cart-item">
+                <img th:src="${item.product.imageUrl}" alt="Product Image">
+                <h2 th:text="${item.product.name}">Product Name</h2>
+                <p th:text="'Price: ' + ${item.product.price}">Product Price</p>
+                <input type="number" th:value="${item.quantity}" th:attr="data-id=${item.product.id}" class="quantity-input">
+                <button th:onclick="'removeFromCart(' + ${item.product.id} + ')'" class="remove-from-cart-btn">Remove</button>
+            </div>
+        </div>
+        <a href="/checkout" class="checkout-btn">Proceed to Checkout</a>
+    </main>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

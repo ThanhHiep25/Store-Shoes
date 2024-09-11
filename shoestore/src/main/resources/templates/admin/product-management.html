@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="/images/logo.png" alt="Logo">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/admin/products">Product Management</a>
+            <a href="/admin/orders">Order Management</a>
+            <a href="/admin/users">User Management</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Product Management</h1>
+        <a href="/admin/products/new" class="btn">Add New Product</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Stock Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.description}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td th:text="${product.stockQuantity}"></td>
+                    <td>
+                        <a th:href="@{/admin/products/{id}(id=${product.id})}">View</a>
+                        <a th:href="@{/admin/products/{id}/edit(id=${product.id})}">Edit</a>
+                        <a th:href="@{/admin/products/{id}/delete(id=${product.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

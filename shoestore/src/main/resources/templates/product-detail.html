@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Product Detail</title>
+        <link rel="stylesheet" href="/css/productDetails.css">
+        <link rel="stylesheet" href="../static/css/productDetails.css">
+    </head>
+    <body>
+        
+        <header>
+            <!-- <img src="/images/logo.png" alt="Logo">
+            <nav>
+                <a href="/">Home</a>
+                <a href="/cart">Cart</a>
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+            </nav> -->
+
+            <div class="menu-home">
+                <img src="https://cdn.glitch.global/99b7332c-26b5-4906-89f3-c79101470dd1/moon.png?v=1725115809358" alt="Logo" class="logo-home">
+                <ul class="ul-home">
+                    <li class="li-home">Add Product</li>
+                    <li class="li-home">About</li>
+                    <li class="li-home">Contact</li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div class="container-pr-detail">
+                <h1 th:text="${product.name}" class="namepr-detail">Dép nam nữ quai ngang slipper Pathon quai PVC và đế PU trắng quai xám SD28</h1>
+                <img th:src="${product.imageUrl}" alt="Product Image" class="imgpr-detail">
+                <p th:text="${product.description}" class="despr-detail">Dép Pathon cao cấp quai ngang PVC đế PU cao cấp</p>
+                <p th:text="'Price: ' + ${product.price}" class="pricepr-detail">Price: 399.00</p>
+                <button th:onclick="'addToCart(' + ${product.id} + ')'" class="addbtn-detail">Mua</button>
+            </div>
+        </main>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
