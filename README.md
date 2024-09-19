@@ -6,11 +6,13 @@
 
 <h2>Trang product List</h2>
 
-![image](https://github.com/user-attachments/assets/f9e4e422-7f4e-4edb-bc7e-2a35631c597e)
+![image](https://github.com/user-attachments/assets/abac2594-7b02-4cb5-af4d-6744cf1fed21)
+
 
 <h2>Product Detail</h2>
 
-![image](https://github.com/user-attachments/assets/59a7bc7a-6ac3-4a67-948d-a7cca2fc5edf)
+
+![image](https://github.com/user-attachments/assets/0cf32aa2-8f9e-4abe-926c-a7cc7765c32b)
 
 
 
